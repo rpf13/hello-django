@@ -18,6 +18,7 @@ if os.path.exists('env.py'):
 
 # This will set this variable either to it's value or to false
 # It is required to keep on local development with the logal db
+# It will check if it is set on heroku
 development = os.environ.get('DEVELOPMENT', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
