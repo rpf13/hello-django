@@ -20,13 +20,13 @@ if os.path.exists('env.py'):
 # It is required to keep on local development with the logal db
 # It will check if it is set on heroku. So if the variable is set
 # in the env.py development beocmes True. However, I had massive
-# issues with this very complicated logic of setting the 
+# issues with this very complicated logic of setting the
 # Allowed hosts and debug with it. Therefore that got changed
 # see comments further below.
 # It is still important to keep the line, because our databases
 # local or the gitpod elephantsql are getting set based on the
 # development variable, see line 114.
-development = os.environ.get('DEVELOPMENT', False)
+development = os.environ.get('ENABLE_LOCAL_DB', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
