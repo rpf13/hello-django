@@ -32,12 +32,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+# The following commented out code did not really work, so it got
+# simplified.
+# DEBUG = development
 
-if development:
-    ALLOWED_HOSTS = ['localhost']
-else:
-    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+# if development:
+#     ALLOWED_HOSTS = ['localhost']
+# else:
+#     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+
+# In the following code we set DEBUG to true if it is set in the
+# env.py file. The value does not matter, only the variable needs to
+# be there. The allowed hosts is set that localhost AND for heroku
+# is set. On heroku we need to set that variable to cvars. With this
+# we should be able to work locally and on the deployed version.
+
+DEBUG = 'DEVELOPMENT' in os.environ
+
+ALLOWED_HOSTS = ['localhost', os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
